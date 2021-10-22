@@ -1,0 +1,17 @@
+{
+    "name": "govic/forgesample",
+    "description": "a forge sample of PHP",
+    "type": "project",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Diego Nieto",
+            "email": "diego_nieto_1@hotmail.com"
+        }
+    ],
+    "require": {
+        "autodesk/forge-client": "^1.0",
+        "klein/klein": "^2.1",
+        "vlucas/phpdotenv": "^5.3"
+    }
+}
