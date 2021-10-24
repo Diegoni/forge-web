@@ -90,8 +90,8 @@ $(document).ready(function () {
           'multiple': false,
           "data": function (node) {
             console.log('appBuckets core data');
-
             console.log('id: '+node.id );
+            console.log(node);
 
             return { "id": node.id };
           }
