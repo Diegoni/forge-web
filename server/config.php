@@ -10,7 +10,8 @@ class ForgeConfig{
     public static function getForgeID(){
       //$forge_id = getenv('FORGE_CLIENT_ID');
 
-      $forge_id = "90Wu7ak6vUw5tqAvk1O1cbXmhs1mmcwb";
+      //$forge_id = "90Wu7ak6vUw5tqAvk1O1cbXmhs1mmcwb";
+      $forge_id = "Qi4iw4HBpyf2BrTrAB033I7z97VmWKB4 ";
       
       if(!$forge_id){
         // load the environment variable from .env into your application
@@ -24,7 +25,8 @@ class ForgeConfig{
     public static function getForgeSecret(){
       //$forge_secret = getenv('FORGE_CLIENT_SECRET');
       
-      $forge_secret = "ENoqH4GEaezLdjTT";
+      //$forge_secret = "ENoqH4GEaezLdjTT";
+      $forge_secret = "8SzJZ4jFF39DYseh";
       
       if(!$forge_secret){
         // load the environment variable from .env into your application
