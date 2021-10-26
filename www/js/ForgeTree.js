@@ -23,6 +23,8 @@ $(document).ready(function () {
           formData.append('fileToUpload', file);
           formData.append('bucketKey', node.id);
 
+          console.log( node.id);
+
           $.ajax({
             url: '/api/forge/oss/objects',
             data: formData,
@@ -40,12 +42,15 @@ $(document).ready(function () {
   });
 
   function createNewBucket() {
+    console.log( 'createNewBucket' );
     var bucketKey = $('#newBucketKey').val();
     jQuery.post({
       url: '/api/forge/oss/buckets',
       contentType: 'application/json',
       data: JSON.stringify({ 'bucketKey': bucketKey }),
       success: function (res) {
+        console.log( 'success function' );
+
         $('#appBuckets').jstree(true).refresh();
         $('#createBucketModal').modal('toggle');
       },
@@ -58,6 +63,7 @@ $(document).ready(function () {
   }
 
   function prepareAppBucketTree() {
+    console.log( 'prepareAppBucketTree' );
     $('#appBuckets').jstree({
       'core': {
         'themes': { "icons": true },
@@ -66,6 +72,8 @@ $(document).ready(function () {
           "dataType": "json",
           'multiple': false,
           "data": function (node) {
+            console.log( node);
+
             return { "id": node.id };
           }
         }
@@ -87,8 +95,10 @@ $(document).ready(function () {
       "plugins": ["types", "state", "sort", "contextmenu"],
       contextmenu: { items: autodeskCustomMenu }
     }).on('loaded.jstree', function () {
+      console.log( 'loaded.jstree' );
       $('#appBuckets').jstree('open_all');
     }).bind("activate_node.jstree", function (evt, data) {
+      console.log( 'activate_node.jstree' );
       if (data != null && data.node != null && data.node.type == 'object') {
         $("#forgeViewer").empty();
         var urn = data.node.id;
@@ -113,6 +123,9 @@ $(document).ready(function () {
   }
 
   function autodeskCustomMenu(autodeskNode) {
+
+    console.log( 'autodeskCustomMenu' );
+
     var items;
 
     switch (autodeskNode.type) {
@@ -149,6 +162,8 @@ $(document).ready(function () {
   }
 
   function translateObject(node) {
+    console.log( 'translateObject' );
+
     $("#forgeViewer").empty();
     if (node == null) node = $('#appBuckets').jstree(true).get_selected(true)[0];
     var bucketKey = node.parents[0];
