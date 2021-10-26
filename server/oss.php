@@ -16,6 +16,9 @@ class DataManagement{
          // get the request body
          $body = json_decode(file_get_contents('php://input', 'r'), true);
 
+         //TODO:: borrar esta linea, la agregue para hacerlo funcionar
+        //$body['bucketKey'] = (empty($body)) ? '8SzJZ4jFF39DYseh' : $body['bucketKey'];
+
          $bucketKey = ForgeConfig::$prepend_bucketkey?(strtolower(ForgeConfig::getForgeID()).'_'.$body['bucketKey']):$body['bucketKey'];
          // $policeKey = $body['policyKey'];
          $policeKey = "transient";

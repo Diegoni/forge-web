@@ -8,26 +8,18 @@ class ForgeConfig{
     public static $prepend_bucketkey = true; //toggle client ID prefix to avoid conflict with existing buckets
 
     public static function getForgeID(){
-      //$forge_id = getenv('FORGE_CLIENT_ID');
-
-      //$forge_id = "90Wu7ak6vUw5tqAvk1O1cbXmhs1mmcwb";
-      $forge_id = "Qi4iw4HBpyf2BrTrAB033I7z97VmWKB4 ";
-      
+      $forge_id = getenv('FORGE_CLIENT_ID');
       if(!$forge_id){
         // load the environment variable from .env into your application
         $dotenv = Dotenv::create(__DIR__);
         $dotenv->load();
         $forge_id = getenv('FORGE_CLIENT_ID');
-      }
+     }
       return $forge_id;
     }
 
     public static function getForgeSecret(){
-      //$forge_secret = getenv('FORGE_CLIENT_SECRET');
-      
-      //$forge_secret = "ENoqH4GEaezLdjTT";
-      $forge_secret = "8SzJZ4jFF39DYseh";
-      
+      $forge_secret = getenv('FORGE_CLIENT_SECRET');
       if(!$forge_secret){
         // load the environment variable from .env into your application
         $dotenv = Dotenv::create(__DIR__);

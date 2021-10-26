@@ -86,7 +86,45 @@ abstract class AbstractApi
             $headerParams['Authorization'] = "Bearer {$this->authClient->getAccessToken()}";
         }
 
-        return $this->apiClient->callApi($resourcePath, $method, $queryParams, $postData, $headerParams, $responseType,
-            $endpointPath);
+/*
+        echo '<pre> $resourcePath :<br>';
+        echo print_r($resourcePath , true);
+        echo '</pre>';
+
+        echo '<pre> $method :<br>';
+        echo print_r($method, true);
+        echo '</pre>';
+
+        echo '<pre> $queryParams :<br>';
+        echo print_r($queryParams, true);
+        echo '</pre>';
+
+        echo '<pre> $postData :<br>';
+        echo print_r($postData, true);
+        echo '</pre>';
+
+        echo '<pre> $headerParams :<br>';
+        echo print_r($headerParams, true);
+        echo '</pre>';
+
+        echo '<pre> $responseType :<br>';
+        echo print_r($responseType,true);
+        echo '</pre>';
+
+        echo '<pre> $endpointPath :<br>';
+        echo print_r($endpointPath, true);
+        echo '</pre>';
+
+        exit;
+*/
+        return $this->apiClient->callApi(
+            $resourcePath, 
+            $method, 
+            $queryParams, 
+            $postData, 
+            $headerParams, 
+            $responseType,
+            $endpointPath
+        );
     }
 }
