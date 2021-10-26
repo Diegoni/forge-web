@@ -1,5 +1,7 @@
 $(document).ready(function () {
     prepareAppBucketTree();
+    callProyectos();
+    
     $('#refreshBuckets').click(function () {
       $('#appBuckets').jstree(true).refresh();
     });
@@ -40,6 +42,25 @@ $(document).ready(function () {
       }
     });
   });
+
+
+  function callProyectos(){
+    $("#forgeViewer").empty();
+      getForgeToken(function (access_token) {
+       jQuery.get({
+         url: '/listaProyecto',
+         contentType: 'application/json',
+         
+         success: function (res) {
+        //   alert(res);
+           console.log("VISTA SELECCIONADA URN");
+           console.log(res[0].nombre);
+           openViewer(res[0].nombre);
+         },
+       });
+      
+    })
+  }
 
   function createNewBucket() {
     console.log( 'createNewBucket' );
